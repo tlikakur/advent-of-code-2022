@@ -17,3 +17,16 @@ export function isBetween(first: number, second: number, current: number) {
     (first >= current && current >= second)
   );
 }
+
+export function splitByMultipleDelimiters(
+  line: string,
+  tokens: string[]
+): string[] {
+  var tempChar = tokens[0];
+
+  for (var i = 1; i < tokens.length; i++) {
+    line = line.split(tokens[i]).join(tempChar);
+  }
+
+  return line.split(tempChar).slice(1);
+}
